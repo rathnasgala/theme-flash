@@ -1,0 +1,133 @@
+/* Flash: urgent magazine geometry with high-contrast, accessible color. */
+:root {
+  color-scheme: light dark;
+  --gala-color-background: light-dark(#fffdf5, #101010);
+  --gala-color-surface: light-dark(#fff1a8, #1c1c1c);
+  --gala-color-raised: light-dark(#ffffff, #292929);
+  --gala-color-text: light-dark(#171717, #fffdf5);
+  --gala-color-muted: light-dark(#60594a, #c6c0b4);
+  --gala-color-border: light-dark(#777064, #969084);
+  --gala-color-hairline: light-dark(#ded7c5, #38352f);
+  --gala-color-border-strong: light-dark(#171717, #fff1a8);
+  --gala-color-accent: light-dark(var(--gala-accent-light, #a32a17), var(--gala-accent-dark, #ffd84d));
+  --gala-font-body: ui-sans-serif, -apple-system, "Segoe UI", Arial, sans-serif;
+  --gala-font-display: Impact, Haettenschweiler, "Arial Narrow Bold", "Segoe UI", sans-serif;
+  --gala-font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --gala-weight-display: 800;
+  --gala-leading-tight: 0.98;
+  --gala-leading-body: 1.58;
+  --gala-tracking-tight: -0.025em;
+  --gala-tracking-wide: 0.12em;
+  --gala-step: 0.92rem;
+  --gala-content-width: 82rem;
+  --gala-measure: 72ch;
+  --gala-radius-control: 0;
+  --gala-radius-surface: 0;
+  --gala-shadow-high: 0.5rem 0.5rem 0 var(--gala-color-border-strong);
+  --gala-surface-border: var(--gala-color-border-strong);
+  --gala-surface-shadow: 0.42rem 0.42rem 0 var(--gala-color-border-strong);
+}
+
+:root[data-mode='light'] {
+  color-scheme: light;
+  --gala-color-background: #fffdf5;
+  --gala-color-surface: #fff1a8;
+  --gala-color-raised: #ffffff;
+  --gala-color-text: #171717;
+  --gala-color-muted: #60594a;
+  --gala-color-border: #777064;
+  --gala-color-hairline: #ded7c5;
+  --gala-color-border-strong: #171717;
+  --gala-color-accent: var(--gala-accent-light, #a32a17);
+}
+
+:root[data-mode='dark'] {
+  color-scheme: dark;
+  --gala-color-background: #101010;
+  --gala-color-surface: #1c1c1c;
+  --gala-color-raised: #292929;
+  --gala-color-text: #fffdf5;
+  --gala-color-muted: #c6c0b4;
+  --gala-color-border: #969084;
+  --gala-color-hairline: #38352f;
+  --gala-color-border-strong: #fff1a8;
+  --gala-color-accent: var(--gala-accent-dark, #ffd84d);
+}
+
+body { border-block-start: 0.55rem solid var(--gala-color-accent); }
+
+.gala-site-header {
+  padding-block: 0.7rem;
+  border-block-end: 0.2rem solid var(--gala-color-border-strong);
+  background: var(--gala-color-background);
+  backdrop-filter: none;
+}
+
+.gala-site-name {
+  font-family: var(--gala-font-display);
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.gala-icon-control, .gala-account-control, button { border-width: 0.125rem; }
+
+.gala-article-header {
+  margin-block-end: clamp(2rem, 5vw, 4rem);
+  padding-block: clamp(3rem, 8vw, 7rem) clamp(2rem, 5vw, 4rem);
+  border-block-end: clamp(0.5rem, 1vw, 0.9rem) solid var(--gala-color-accent);
+}
+
+.gala-article-header h1 {
+  max-inline-size: 13ch;
+  font-size: clamp(3.3rem, 9vw, 7rem);
+  text-transform: uppercase;
+}
+
+.gala-eyebrow, .gala-card__meta { font-family: var(--gala-font-mono); font-weight: 700; }
+.gala-card-index { gap: 1.4rem; }
+
+.gala-card {
+  border-width: 0.16rem;
+  transition: transform var(--gala-motion-fast) linear, box-shadow var(--gala-motion-fast) linear;
+}
+
+.gala-card-index li:nth-child(3n + 2) .gala-card { background: var(--gala-color-raised); }
+.gala-card-index li:hover .gala-card { transform: translate(-0.2rem, -0.2rem); }
+.gala-card h2 { text-transform: uppercase; }
+
+.gala-tag-chip, .gala-badge {
+  border-width: 0.125rem;
+  font-family: var(--gala-font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gala-markdown :where(h2) {
+  padding-block-end: 0.35rem;
+  border-block-end: 0.3rem solid var(--gala-color-accent);
+  text-transform: uppercase;
+}
+
+.gala-markdown blockquote {
+  padding: 1rem 1.2rem;
+  color: var(--gala-color-text);
+  background: var(--gala-color-surface);
+  border: 0.15rem solid var(--gala-color-border-strong);
+  box-shadow: 0.35rem 0.35rem 0 var(--gala-color-accent);
+  font-weight: 650;
+}
+
+.gala-page-footer { border-block-start-width: 0.4rem; }
+
+@media (max-width: 42rem) {
+  .gala-site-header { position: relative; align-items: flex-start; }
+  .gala-article-header h1 { font-size: clamp(2.8rem, 16vw, 4.8rem); }
+  .gala-card { box-shadow: 0.28rem 0.28rem 0 var(--gala-color-border-strong); }
+}
+
+@media print {
+  :root { --gala-color-background: #ffffff; --gala-color-text: #000000; --gala-color-accent: #000000; }
+  body { border: 0; }
+  .gala-card, .gala-markdown blockquote { box-shadow: none; }
+}

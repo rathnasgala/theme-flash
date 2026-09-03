@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "flash",
+  "version": "1.0.0",
+  "name": "Flash",
+  "description": "High-contrast magazine geometry for announcements, news, and energetic publications.",
+  "framework": {
+    "minimumVersion": "2.0.32",
+    "maximumVersionExclusive": "3.0.0"
+  },
+  "css": {
+    "path": "theme.css",
+    "sha256": "da62b0482cfb381c368944f25510e0c9dc988485dfdb23512edc328ddb1f608b"
+  }
+}
